@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatMessage } from '../chatmessage';
 import { CHATMESSAGES } from '../mock-chatmessages';
+import { ChatmessageService } from "../chatmessage.service";
 
 @Component({
   selector: 'app-messages',
@@ -9,8 +10,10 @@ import { CHATMESSAGES } from '../mock-chatmessages';
 })
 export class MessagesComponent implements OnInit {
   // Define component property called messages to expose CHATMESSAGES array for binding
-  messages = CHATMESSAGES;
+  messages: ChatMessage[];
 
+
+  // Deprecated code
   message: ChatMessage = {
     id: 1,
     username: 'Admin',
@@ -19,9 +22,17 @@ export class MessagesComponent implements OnInit {
 
   }
 
-  constructor() { }
+  getChatMessages(): void{
+    this.chatMessageService.getChatMessages()
+      .subscribe(chatmessages => this.messages = chatmessages)
+
+    // this.messages = this.chatMessageService.getChatMessages();
+  }
+
+  constructor(private chatMessageService: ChatmessageService) { }
 
   ngOnInit(): void {
+    this.getChatMessages();
   }
 
 }
