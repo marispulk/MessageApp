@@ -1,24 +1,59 @@
-<h2>Messages</h2>
-<ul class="messages">
-    <!--  To list messages from mock-chatmessages.ts we use ngFor -->
-    <li *ngFor="let message of messages">
-        <div><span>id: {{ message.id }}</span></div>
-        <div><span>username: {{ message.username}}</span></div>
-        <div><span>date: {{ message.date }}</span></div>
-        <div><span>date: {{ message.content }}</span></div>
-    </li>
-</ul>
+<!-- Chat header area -->
 
-<hr>
+<div class="container chatContainer">
+    <div class="row">
+        <div class="col col-1">
+            <img src="https://toppng.com/uploads/preview/the-little-unicorn-broadmeadow-logo-unicorn-design-11563163809azqlquvewt.png" alt="Chat logo" class="img-thumbnail">
+        </div>
+        <div class="col col-10 col-sm-8 d-flex align-items-center"><h3><strong>Cloud Unicorn Chat</strong></h3></div>
+        <div class="col col-1 d-flex align-items-center">...</div>
+
+    </div>
+    <hr>
+    <!-- Chat content area -->
+    <div class="row messageRow" *ngFor="let message of messages">
+        <div class="col col-1 offset-sm-2">
+            <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png" alt="Chat logo" class="img-thumbnail rounded-circle">
+        </div>
+        <div class="col col-6 messageContainer rounded border">
+            <div class="row messageUser">
+                {{ message.username}}
+            </div>
+            <div class="row messageContent">
+                {{ message.content }}
+            </div>
+
+        </div>
+        <div class="col col-2 text-right">
+            <span class="float-right">
+                {{ message.date }}
+            </span> 
+        </div>
+    </div>
+    <hr>
+<!-- Post message area  -->
+    <div class="row">
+        <div class= "col col-8 offset-sm-2 form-group">
+            <div class="input-group">
+                <input #chatMessage class="form-control" 
+                (keyup.enter)="add(chatMessage.value); chatMessage.value=''"
+                placeholder="Insert Message" id="chatMessage">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" (click)="add(chatMessage.value); chatMessage.value=''">Send</button>
+
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
+
+
+
+
+
 <div>
     <label>
-        <input #chatMessage>
-        <button (click)="add(chatMessage.value); chatMessage.value=''">Insert message</button>
+        
     </label>
 </div>
 
-<!-- <div>
-    <label>
-        Insert message:<input [(ngModel)]="message.content" placeholder="Insert message"/>
-    </label>
-</div> -->
