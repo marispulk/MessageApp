@@ -32,16 +32,8 @@
     margin-bottom: 10px;
 }
 
-.messageContainer {
+.flexMessageContainer {
     background-color: #FFF;
-    
+    padding: 10px;   
 }
 
-.messageUser {
-    padding: 5px;
-}
-
-.messageContent {
-    padding: 5px;
-    
-}
