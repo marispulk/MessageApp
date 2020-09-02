@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chat } from "../chat";
 import { ChatService } from "../chat.service";
 
+
 @Component({
   selector: 'app-chats',
   templateUrl: './chats.component.html',
@@ -9,6 +10,7 @@ import { ChatService } from "../chat.service";
 })
 export class ChatsComponent implements OnInit {
 
+  selectedChat: Chat;
   chats: Chat[];
 
   getChats(): void {
@@ -25,6 +27,10 @@ export class ChatsComponent implements OnInit {
     .subscribe(chats => {
       this.chats.push(chats);
     });
+  }
+
+  onSelect(chat: Chat): void {
+    this.selectedChat = chat;
   }
 
   constructor(private chatService: ChatService) { }

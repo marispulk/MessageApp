@@ -20,7 +20,7 @@ export class ChatmessageService {
 
   addChatMessage(chatmessage: ChatMessage): Observable<ChatMessage> {
     return this.http.post<ChatMessage>(this.chatmessageUrl, chatmessage, this.httpOptions);
-  
+
   }
 
   constructor(
