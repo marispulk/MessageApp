@@ -37,6 +37,10 @@ export class ChatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getChats();
+    this.chatService.$saved
+      .subscribe( (change) => {
+        this.getChats();
+      })
   }
 
 }

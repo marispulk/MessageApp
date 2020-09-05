@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Chat } from "./chat";
 import { CHATS } from "./mock-chats";
 import { Observable } from 'rxjs';
@@ -8,6 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ChatService {
+
+  $saved = new EventEmitter();
 
   private chatUrl = 'api/chats'; //URL to web api
 
@@ -24,7 +26,19 @@ export class ChatService {
     return this.http.post<Chat>(this.chatUrl, chat, this.httpOptions);
   }
 
+  getChatProperties(): Observable<Chat[]> {
+    return this.http.get<Chat[]>(this.chatUrl);
+  }
+
+  saveChatSettings(chat: Chat): Observable<any>{
+    return this.http.put(this.chatUrl, chat, this.httpOptions);
+  }
+
+  notifyChange() {
+    const change = 'Settings changed';
+    this.$saved.emit(change);
+  }
   constructor(
-    private http: HttpClient  
+    private http: HttpClient
   ) { }
 }
