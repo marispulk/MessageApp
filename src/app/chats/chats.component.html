@@ -15,14 +15,23 @@
         <hr>
         <!-- Chat list area -->
         <div class="row mb-2 pl-1" *ngFor="let chat of chats" (click)="onSelect(chat)" [class.border]="chat === selectedChat">
-            <div class="col col-3 d-flex align-items-center justify-content-end pr-0">
+            <div class="col col-2 d-flex align-items-center justify-content-end pr-0">
                 <img src="{{chat.picture}}"
                 alt="Chat logo" class="img-thumbnail" height="45" width="45">
             </div>
-            <div class="col col-9 d-flex align-items-center">
+            <div class="col col-8 d-flex align-items-center">
                 <small>
                     <a routerLink="chat/{{chat.id}}" class="underline text-muted font-weightlight">{{chat.name}}</a>
                 </small>
+            </div>
+            <div class="col col-1 d-flex align-items-center">
+                <div class="dropdown">
+                    <i class="fas fa-ellipsis-h fa-xs" role="button" id="settingsButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"></i>
+                    <div class="dropdown-menu" aria-labelledby="settingsButton">
+                        <a routerLink="chat-settings/{{chat.id}}" class="dropdown-item">Settings</a>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Create chat area -->
