@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Chat } from "./chat";
 import { CHATS } from "./mock-chats";
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -39,6 +39,15 @@ export class ChatService {
     const url = `${this.chatUrl}/${id}`;
 
     return this.http.delete<Chat>(url, this.httpOptions);
+  }
+
+  chatSearch(name: string): Observable<Chat[]> {
+    //If no search term, return empty chat array
+    if (!name.trim()) {
+      return of ([]);
+    }
+
+    return this.http.get<Chat[]>(`${this.chatUrl}/?name=${name}`);
   }
 
   notifyChange() {
