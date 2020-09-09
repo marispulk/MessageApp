@@ -1,6 +1,35 @@
-# MessageApp
+# MessageApp - Angular messaging application
 
+Angular messaging application, developed for showcase.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
+
+# Description
+
+ChatBuzz is a web application that is used for p2p messaging, it features the following functions:
+* Chat management feature [DONE]
+* Messages feature - [DONE]
+* User management feature- [TODO]
+* Firebase database (Currently In-Memory Data Service) - [TODO]
+
+This application is developed by following Angular best practices.
+All features are broken into seperate components(or child components), all data fetching is done by injecting services, and all data models are seperated to model files. 
+All cross component communication is done via services or events.
+
+## Schema
+
+![Schema Picture](https://imgur.com/jzANiKX.png)
+
+## Requirements
+* Angular 10
+* Bootstrap@4.5.2
+* jQuery@3.5.1
+* Popper@1.16.1
+
+## Screenshots
+
+![Main screen](https://imgur.com/abjYK1x.png)
+![Chat settings](https://imgur.com/zYH9C0V.png)
+![New chat](https://imgur.com/n3LA8qy.png)
 
 ## Development server
 
