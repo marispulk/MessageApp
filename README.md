@@ -27,7 +27,7 @@ All cross component communication is done via services or events.
 
 ## Screenshots
 
-![Main screen](https://imgur.com/abjYK1x.png)
+![Main screen](https://i.imgur.com/wKZZuFR.png)
 ![Chat settings](https://imgur.com/zYH9C0V.png)
 ![New chat](https://imgur.com/n3LA8qy.png)
 
