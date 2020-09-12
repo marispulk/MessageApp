@@ -28,8 +28,8 @@ All cross component communication is done via services or events.
 ## Screenshots
 
 ![Main screen](https://i.imgur.com/wKZZuFR.png)
-![Chat settings](https://imgur.com/zYH9C0V.png)
-![New chat](https://imgur.com/n3LA8qy.png)
+![Chat settings](https://i.imgur.com/BYTSsI6.png)
+![New chat](https://i.imgur.com/DkmwXIJ.png)
 
 ## Development server
 
