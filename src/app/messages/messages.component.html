@@ -1,9 +1,8 @@
 <!-- Chat header area -->
-
-<div class="container chatContainer">
+<div class="container-fluid chatContainer">
     <div class="row mt-3">
         <div class="col col-2 d-flex align-items-center justify-content-end">
-            <img src="https://toppng.com/uploads/preview/the-little-unicorn-broadmeadow-logo-unicorn-design-11563163809azqlquvewt.png" 
+            <img src="https://toppng.com/uploads/preview/the-little-unicorn-broadmeadow-logo-unicorn-design-11563163809azqlquvewt.png"
             alt="Chat logo" class="img-thumbnail" height="50" width="50">
         </div>
         <div class="col col-9 col-sm-7 d-flex align-items-center"><h3><strong>CloudChat</strong></h3></div>
@@ -14,7 +13,7 @@
     <!-- Chat content area -->
     <div class="row messageRow" *ngFor="let message of messages">
         <div class="col col-2 offset-sm-1 d-flex align-items-center justify-content-end">
-            <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png" 
+            <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png"
             alt="Chat logo" class="img-thumbnail rounded-circle" height="50" width="50">
         </div>
         <div class="col col-5 pl-0">
@@ -32,7 +31,7 @@
         <div class="col col-2 text-right">
             <span class="float-right text-muted font-weight-light">
                 <small>{{ message.date }}</small>
-            </span> 
+            </span>
         </div>
     </div>
     <hr>
@@ -40,25 +39,15 @@
     <div class="row">
         <div class= "col col-8 offset-sm-2 form-group">
             <div class="input-group">
-                <input #chatMessage class="form-control" 
+                <input #chatMessage class="form-control"
                 (keyup.enter)="add(chatMessage.value); chatMessage.value=''"
                 placeholder="Insert Message" id="chatMessage">
                 <div class="input-group-append">
                     <button class="btn btn-primary" (click)="add(chatMessage.value); chatMessage.value=''">Send</button>
-
                 </div>
             </div>
-         </div>
+        </div>
     </div>
 </div>
 
-
-
-
-
-<div>
-    <label>
-        
-    </label>
-</div>
 

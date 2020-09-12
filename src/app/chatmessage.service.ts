@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { ChatMessage } from "./chatmessage";
-import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class ChatmessageService {
 
   addChatMessage(chatmessage: ChatMessage): Observable<ChatMessage> {
     return this.http.post<ChatMessage>(this.chatmessageUrl, chatmessage, this.httpOptions);
-  
+
   }
 
   constructor(

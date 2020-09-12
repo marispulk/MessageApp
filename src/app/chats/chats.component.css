@@ -1,0 +1,18 @@
+.chatContainer {
+    background-color: #F9F9FB;
+}
+
+.messageContainer {
+    background-color: #E9E3E6;
+}
+
+.underline{
+    text-decoration: none;
+}
+
+.overflow {
+    /* Hide horizontal scrollbar */
+    overflow-x: hidden;
+    /* Add vertical scrollbar */
+    overflow-y: auto;
+}
