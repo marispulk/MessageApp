@@ -9,3 +9,10 @@
 .underline{
     text-decoration: none;
 }
+
+.overflow {
+    /* Hide horizontal scrollbar */
+    overflow-x: hidden;
+    /* Add vertical scrollbar */
+    overflow-y: auto;
+}
