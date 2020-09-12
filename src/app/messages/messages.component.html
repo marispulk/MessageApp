@@ -1,37 +1,37 @@
-<!-- Chat header area -->
 <div class="container-fluid chatContainer">
-    <div class="row mt-3">
+    <!-- Chat header area -->
+    <div class="row mt-3" *ngFor="let chat of chat">
         <div class="col col-2 d-flex align-items-center justify-content-end">
-            <img src="https://toppng.com/uploads/preview/the-little-unicorn-broadmeadow-logo-unicorn-design-11563163809azqlquvewt.png"
+            <img src="{{ chat.picture }}"
             alt="Chat logo" class="img-thumbnail" height="50" width="50">
         </div>
-        <div class="col col-9 col-sm-7 d-flex align-items-center"><h3><strong>CloudChat</strong></h3></div>
-        <div class="col col-1 d-flex align-items-center">...</div>
-
+        <div class="col col-9 col-sm-7 d-flex align-items-center"><h3><strong>{{ chat.name }}</strong></h3></div>
     </div>
     <hr>
     <!-- Chat content area -->
-    <div class="row messageRow" *ngFor="let message of messages">
-        <div class="col col-2 offset-sm-1 d-flex align-items-center justify-content-end">
-            <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png"
-            alt="Chat logo" class="img-thumbnail rounded-circle" height="50" width="50">
-        </div>
-        <div class="col col-5 pl-0">
-            <div class="d-inline-flex flexMessageContainer rounded border">
-                <div class="flex-row">
-                    <div class="text-muted font-weight-light">
-                        <small>{{ message.username}}</small>
-                    </div>
-                    <div>
-                        {{ message.content }}
+    <div class="overflow mh-50 contentArea">
+        <div class="row messageRow" *ngFor="let message of messages">
+            <div class="col col-2 offset-sm-1 d-flex align-items-center justify-content-end">
+                <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png"
+                alt="Chat logo" class="img-thumbnail rounded-circle" height="50" width="50">
+            </div>
+            <div class="col col-5 pl-0">
+                <div class="d-inline-flex flexMessageContainer rounded border">
+                    <div class="flex-row">
+                        <div class="text-muted font-weight-light">
+                            <small>{{ message.username}}</small>
+                        </div>
+                        <div>
+                            {{ message.content }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col col-2 text-right">
-            <span class="float-right text-muted font-weight-light">
-                <small>{{ message.date }}</small>
-            </span>
+            <div class="col col-2 text-right">
+                <span class="float-right text-muted font-weight-light">
+                    <small>{{ message.date }}</small>
+                </span>
+            </div>
         </div>
     </div>
     <hr>
@@ -49,5 +49,6 @@
         </div>
     </div>
 </div>
+
 
 
