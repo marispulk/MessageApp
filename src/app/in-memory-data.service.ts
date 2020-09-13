@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { ChatMessage } from "./chatmessage";
 import { Chat } from "./chat";
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,10 @@ export class InMemoryDataService implements InMemoryDataService {
       {id: 6, chatid: 3, username: 'Admin', content: 'Pole tänu väärt!', date: '25.08.2020 12:25:00'}
       ];
 
-      return {chatmessages, chats};
+      const users = [
+      ]
+
+      return {chatmessages, chats, users};
 
   }
   // Overrides the genID method to ensure that a chatmessage always has a id.
@@ -35,6 +39,10 @@ export class InMemoryDataService implements InMemoryDataService {
   }
   genId(chatmessages: ChatMessage[]): number {
     return chatmessages.length > 0 ? Math.max(...chatmessages.map(chatmessage => chatmessage.id))
+    + 1 : 1;
+  }
+  genUserId(users: User[]): number {
+    return users.length > 0 ? Math.max(...users.map(users => users.id))
     + 1 : 1;
   }
 }
