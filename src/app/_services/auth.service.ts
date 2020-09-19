@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
+
+import { Observable, of, merge } from 'rxjs';
+import { switchMap } from "rxjs/operators";
+
 import { User } from "../user";
 
 @Injectable({
@@ -8,22 +12,37 @@ import { User } from "../user";
 })
 export class AuthService {
 
-  private AUTH_API = "api/users";
+  user$: Observable<User>;
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'applications/json' })
-  };
-
-  userLogin(user: User): Observable<User> {
-    return this.http.post<User>(this.AUTH_API, user, this.httpOptions);
+  async credentialSignIn(email: string, password: string) {
+    const credential = await this.afauth.signInWithEmailAndPassword(email, password);
+    return this.updateUserData(credential.user);
   }
 
-  userRegister(user): Observable<any> {
-    return this.http.post<User>(this.AUTH_API, user, this.httpOptions);
+  private updateUserData({ uid, email, displayName }:User) {
+    const userRef: AngularFirestoreDocument<User> = this.afstore.doc(`users/${uid}`);
 
+    const data = {
+      uid: uid,
+      email: email,
+      displayName: displayName
+    }
+
+    return userRef.set(data, { merge: true });
   }
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private afauth: AngularFireAuth,
+    private afstore: AngularFirestore,
+  ) {
+    this.user$ = this.afauth.authState.pipe(
+      switchMap(user => {
+        if(user) {
+          return this.afstore.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    )
+  }
 }

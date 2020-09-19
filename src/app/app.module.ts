@@ -17,6 +17,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
 import { authInterceptorProviders } from "./_helpers/auth.interceptor";
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { authInterceptorProviders } from "./_helpers/auth.interceptor";
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive request.
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }
-      )
+      ),
+      AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

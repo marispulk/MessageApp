@@ -25,11 +25,7 @@ export class InMemoryDataService implements InMemoryDataService {
       {id: 6, chatid: 3, username: 'Admin', content: 'Pole tänu väärt!', date: '25.08.2020 12:25:00'}
       ];
 
-      const users = [
-      ]
-
-      return {chatmessages, chats, users};
-
+      return {chatmessages, chats};
   }
   // Overrides the genID method to ensure that a chatmessage always has a id.
   // If the chatmessages array is empty the method below returns the initial number (1).
@@ -39,10 +35,6 @@ export class InMemoryDataService implements InMemoryDataService {
   }
   genId(chatmessages: ChatMessage[]): number {
     return chatmessages.length > 0 ? Math.max(...chatmessages.map(chatmessage => chatmessage.id))
-    + 1 : 1;
-  }
-  genUserId(users: User[]): number {
-    return users.length > 0 ? Math.max(...users.map(users => users.id))
     + 1 : 1;
   }
 }
