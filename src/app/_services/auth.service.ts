@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
+import { Router } from '@angular/router';
 
 import { Observable, of, merge } from 'rxjs';
 import { switchMap } from "rxjs/operators";
@@ -16,24 +17,30 @@ export class AuthService {
 
   async credentialSignIn(email: string, password: string) {
     const credential = await this.afauth.signInWithEmailAndPassword(email, password);
-    return this.updateUserData(credential.user);
+    // return this.updateUserData(credential.user);
   }
 
-  private updateUserData({ uid, email, displayName }:User) {
-    const userRef: AngularFirestoreDocument<User> = this.afstore.doc(`users/${uid}`);
-
-    const data = {
-      uid: uid,
-      email: email,
-      displayName: displayName
+    async credentialSignOut() {
+      const signout = await this.afauth.signOut();
+      this.router.navigate(['login']);
     }
 
-    return userRef.set(data, { merge: true });
-  }
+  // private updateUserData({ uid, email }:User) {
+  //   const userRef: AngularFirestoreDocument<User> = this.afstore.doc(`users/${uid}`);
+
+  //   const data = {
+  //     uid: uid,
+  //     email: email,
+  //     displayName: displayName
+  //   }
+
+  //   return userRef.set(data, { merge: true });
+  // }
 
   constructor(
     private afauth: AngularFireAuth,
     private afstore: AngularFirestore,
+    private router: Router
   ) {
     this.user$ = this.afauth.authState.pipe(
       switchMap(user => {

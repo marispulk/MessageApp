@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
 
   onSubmit(email: string, password: string): void {
-    console.log("test");
-
     this.authService.credentialSignIn( email, password );
     this.router.navigate(['']);
   }

@@ -12,14 +12,12 @@ export class NavbarComponent implements OnInit {
 
   //Needs to be moved to auth.service
   signOut() {
-    this.afauth.signOut();
-    this.router.navigate(['login']);
+    this.auth.credentialSignOut();
   }
 
   constructor(
     public afauth: AngularFireAuth,
     public auth: AuthService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
