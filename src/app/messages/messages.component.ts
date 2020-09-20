@@ -32,7 +32,7 @@ export class MessagesComponent implements OnInit {
   }
 
   add(content: string): void {
-    // Username is set as a constant until user comopnent is created.
+    // Username is set as a constant until user component is created.
     const username = 'Admin';
     // Get chat id from URL
     const chatid = +this.route.snapshot.paramMap.get('id');

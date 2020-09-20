@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "message-app-ff56f": {
+      "hosting": {
+        "message-app": [
+          "message-app-ff56f"
+        ]
+      }
+    }
+  }
+}

@@ -12,7 +12,15 @@ import { InMemoryDataService } from "./in-memory-data.service";
 import { ChatsComponent } from './chats/chats.component';
 import { ChatSettingsComponent } from './chats/chat-settings/chat-settings.component';
 import { ChatSearchComponent } from './chats/chat-search/chat-search.component';
+import { UsersComponent } from './users/users.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './users/login/login.component';
+import { RegisterComponent } from './users/register/register.component';
+import { authInterceptorProviders } from "./_helpers/auth.interceptor";
+import { AngularFireModule } from '@angular/fire';
+
+import { environment } from 'src/environments/environment';
+import { UserSettingsComponent } from './users/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     ChatsComponent,
     ChatSettingsComponent,
     ChatSearchComponent,
-    NavbarComponent
+    UsersComponent,
+    NavbarComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +44,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive request.
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }
-      )
+      ),
+      AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

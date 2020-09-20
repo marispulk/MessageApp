@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { ChatMessage } from "./chatmessage";
 import { Chat } from "./chat";
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,6 @@ export class InMemoryDataService implements InMemoryDataService {
       ];
 
       return {chatmessages, chats};
-
   }
   // Overrides the genID method to ensure that a chatmessage always has a id.
   // If the chatmessages array is empty the method below returns the initial number (1).
