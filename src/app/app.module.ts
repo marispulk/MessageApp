@@ -20,6 +20,7 @@ import { authInterceptorProviders } from "./_helpers/auth.interceptor";
 import { AngularFireModule } from '@angular/fire';
 
 import { environment } from 'src/environments/environment';
+import { UserSettingsComponent } from './users/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { environment } from 'src/environments/environment';
     UsersComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,

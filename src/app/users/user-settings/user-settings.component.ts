@@ -1,0 +1,54 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/user';
+import { AuthService } from 'src/app/_services/auth.service';
+import { UserService } from "src/app/_services/user.service";
+
+@Component({
+  selector: 'app-user-settings',
+  templateUrl: './user-settings.component.html',
+  styleUrls: ['./user-settings.component.css']
+})
+export class UserSettingsComponent implements OnInit {
+
+  user: User;
+
+  getUserProperties(): void {
+    // Get uid from URL
+    const uid = this.route.snapshot.paramMap.get('uid');
+    this.userService.getUserProperties()
+        .subscribe(userproperties => this.user = userproperties);
+  }
+
+  saveUserSettings(displayPicture: string, displayName: string, email: string): void{
+    displayPicture = displayPicture.trim();
+    displayName = displayName.trim();
+    email = email.trim();
+
+    if(!displayPicture || !displayName || !email) {
+      return;
+    }
+
+    // Get uid from URL
+    const uid = this.route.snapshot.paramMap.get('uid');
+    this.userService.saveUserSettings( {uid, email, displayName, displayPicture} as User);
+        // this.userService.notifyUserChange();
+
+  }
+
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private auth: AuthService
+  ) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(
+      params => {
+        const id = +params['uid'];
+        this.getUserProperties();
+      }
+    )
+  }
+
+}
