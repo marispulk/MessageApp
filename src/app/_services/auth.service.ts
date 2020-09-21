@@ -14,6 +14,7 @@ import { User } from "../user";
 export class AuthService {
 
   user$: Observable<User>;
+  uid$: string;
 
   async credentialSignIn(email: string, password: string) {
     const credential = await this.afauth.signInWithEmailAndPassword(email, password);
@@ -25,6 +26,9 @@ export class AuthService {
       this.router.navigate(['login']);
     }
 
+    currentUser() {
+      return this.uid$;
+    }
   // private updateUserData({ uid, email }:User) {
   //   const userRef: AngularFirestoreDocument<User> = this.afstore.doc(`users/${uid}`);
 
@@ -50,6 +54,9 @@ export class AuthService {
           return of(null);
         }
       })
-    )
+    );
+    this.afauth.authState.subscribe(user => {
+      if(user) this.uid$ = user.uid;
+    })
   }
 }
