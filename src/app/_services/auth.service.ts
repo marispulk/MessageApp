@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
+import { AngularFirestore} from "@angular/fire/firestore";
 import { Router } from '@angular/router';
 
-import { Observable, of, merge } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { switchMap } from "rxjs/operators";
 
 import { User } from "../user";
@@ -14,9 +14,11 @@ import { User } from "../user";
 export class AuthService {
 
   user$: Observable<User>;
+  uid$: string;
 
   async credentialSignIn(email: string, password: string) {
     const credential = await this.afauth.signInWithEmailAndPassword(email, password);
+    this.router.navigate(['']);
     // return this.updateUserData(credential.user);
   }
 
@@ -25,6 +27,9 @@ export class AuthService {
       this.router.navigate(['login']);
     }
 
+    currentUser() {
+      return this.uid$;
+    }
   // private updateUserData({ uid, email }:User) {
   //   const userRef: AngularFirestoreDocument<User> = this.afstore.doc(`users/${uid}`);
 
@@ -50,6 +55,9 @@ export class AuthService {
           return of(null);
         }
       })
-    )
+    );
+    this.afauth.authState.subscribe(user => {
+      if(user) this.uid$ = user.uid;
+    })
   }
 }
