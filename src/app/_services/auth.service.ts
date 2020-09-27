@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
+import { AngularFirestore} from "@angular/fire/firestore";
 import { Router } from '@angular/router';
 
-import { Observable, of, merge } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { switchMap } from "rxjs/operators";
 
 import { User } from "../user";
@@ -18,6 +18,7 @@ export class AuthService {
 
   async credentialSignIn(email: string, password: string) {
     const credential = await this.afauth.signInWithEmailAndPassword(email, password);
+    this.router.navigate(['']);
     // return this.updateUserData(credential.user);
   }
 

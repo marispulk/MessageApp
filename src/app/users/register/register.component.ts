@@ -19,13 +19,8 @@ export class RegisterComponent implements OnInit {
   onSubmit(email: string, password: string): void {
 
     //Needs to be moved to auth service
-    this.auth.createUserWithEmailAndPassword(email, password).then(user => {
-      console.log(user);
-      this.router.navigate(['']);
-    });
+    this.auth.createUserWithEmailAndPassword(email, password);
   }
-
-
 
   constructor(
     private authService: AuthService,
