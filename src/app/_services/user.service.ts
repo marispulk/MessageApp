@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { User } from '../user';
 import { AuthService } from './auth.service';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
