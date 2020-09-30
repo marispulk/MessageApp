@@ -1,47 +1,47 @@
 <!-- User settings header area -->
 <div class="container-fluid userSettingsContainer" *ngIf="user as user">
     <div class="row mt-3">
-        <div class="col col-2 d-flex align-items-center justify-content-end">
+        <div class="col col-3 offset-1 col-sm-2 offset-sm-3 d-flex align-items-center justify-content-end">
             <img src="{{user.displayPicture}}"
-            alt="User avatar" class="img-thumbnail" height="50" width="50">
+            alt="User avatar" class="img-fluid rounded-circle" height="35" width="35">
         </div>
-        <div class="col col-10 col-sm-7 d-flex align-items-center"><h3><strong>User Settings</strong></h3></div>
+        <div class="col col-8 col-sm-7  d-flex align-items-center"><h4><strong>User Settings</strong></h4></div>
     </div>
     <hr>
     <!-- User settings area -->
     <div class="row">
-        <div class="col col-12">
+        <div class="col col-12 mt-2">
             <div class="row form-group">
-                <label for="userId" class="col col-2 offset-3 col-form-label">User ID:</label>
-                <div id="UserId" class="col col-4 form-control text-muted" disabled>{{user.uid}}</div>
+                <label for="userId" class="col col-11 offset-1 col-sm-2 offset-sm-3 col-form-label">User ID:</label>
+                <input id="UserId" class="col col-11 offset-1 col-sm-4 form-control text-muted" value="{{user.uid}}" disabled>
             </div>
         </div>
-        <div class="col col-12">
+        <div class="col col-12 mt-2">
             <div class="row form-group">
-                <label for="userChangeAvatarUrl" class="col col-2 offset-3 col-form-label">Change picture:</label>
-                <input #userChangeAvatarUrl class="form-control col col-4" type="url"
+                <label for="userChangeAvatarUrl" class="col col-11 offset-1 col-sm-2 offset-sm-3 col-form-label">Change picture:</label>
+                <input #userChangeAvatarUrl class="form-control col col-11 offset-1 col-sm-4" type="url"
                 placeholder="Insert picture URL" id="userChangeAvatarUrl" value="{{user.displayPicture}}" required>
             </div>
         </div>
-        <div class="col col-12">
+        <div class="col col-12 mt-2">
             <div class="row form-group">
-                <label for="userChangeDisplayName" class="col col-2 offset-3 col-form-label">Change name:</label>
-                <input #userChangeDisplayName class="form-control col col-4" type="text"
+                <label for="userChangeDisplayName" class="col col-11 offset-1 col-sm-2 offset-sm-3 col-form-label">Change name:</label>
+                <input #userChangeDisplayName class="form-control col col-11 offset-1 col-sm-4" type="text"
                 placeholder="Insert display name" id="userChangeDisplayName" value="{{user.displayName}}" required>
             </div>
         </div>
-        <div class="col col-12">
+        <div class="col col-12 mt-2 mb-1">
             <div class="row form-group">
-                <label for="userChangeEmail" class="col col-2 offset-3 col-form-label">Change email:</label>
-                <input #userChangeEmail class="form-control col col-4" type="email"
+                <label for="userChangeEmail" class="col col-11 offset-1 col-sm-2 offset-sm-3 col-form-label">Change email:</label>
+                <input #userChangeEmail class="form-control col col-11 offset-1 col-sm-4" type="email"
                 placeholder="Insert email" id="userChangeEmail" value="{{user.email}}" required>
             </div>
         </div>
         <div class="col col-12">
             <!-- Post change area  -->
         <div class="row">
-            <div class= "col col-8 offset-3">
-                <button type="button" class="btn btn-info" (click)="saveUserSettings(userChangeAvatarUrl.value, userChangeDisplayName.value, userChangeEmail.value);">Save settings
+            <div class= "col col-8 offset-4 col-sm-5 offset-sm-3 col-md-4 col-lg-3 mb-sm-3">
+                <button type="button" class="btn btn-dark" (click)="saveUserSettings(userChangeAvatarUrl.value, userChangeDisplayName.value, userChangeEmail.value);">Save settings
                 </button>
             </div>
         </div>
