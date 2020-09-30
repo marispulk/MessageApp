@@ -1,3 +1,11 @@
+.messagesContainer {
+    background-color: #F7F5FB;
+}
+
+.messageRowContainer{
+    margin-bottom: 10px;
+}
+
 .messages {
     margin: 0 0 2em 0;
     list-style-type: none;
@@ -22,14 +30,6 @@
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
-}
-
-.chatContainer {
-    background-color: #E9E3E6;
-}
-
-.messageRow{
-    margin-bottom: 10px;
 }
 
 .flexMessageContainer {
