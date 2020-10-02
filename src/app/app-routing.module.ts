@@ -18,9 +18,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent,    ...canActivate(redirectLoggedInToHome)},
   { path: 'login', component: LoginComponent, ...canActivate(redirectLoggedInToHome)},
   { path: 'user-settings/:uid', component: UserSettingsComponent,    ...canActivate(redirectUnauthorizedToLogin)},
-
-
-
 ];
 
 @NgModule({

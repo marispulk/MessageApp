@@ -2,13 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from '@angular/fire';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages/messages.component';
 // Import HttpClient modules to simulate a data server
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./in-memory-data.service";
 import { ChatsComponent } from './chats/chats.component';
 import { ChatSettingsComponent } from './chats/chat-settings/chat-settings.component';
 import { ChatSearchComponent } from './chats/chat-search/chat-search.component';
@@ -17,7 +16,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
 import { authInterceptorProviders } from "./_helpers/auth.interceptor";
-import { AngularFireModule } from '@angular/fire';
 
 import { environment } from 'src/environments/environment';
 import { UserSettingsComponent } from './users/user-settings/user-settings.component';
@@ -42,12 +40,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive request.
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }
-      ),
-      AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

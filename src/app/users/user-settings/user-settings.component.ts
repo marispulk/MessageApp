@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/user';
-import { AuthService } from 'src/app/_services/auth.service';
+import { User } from 'src/app/_models/user';
 import { UserService } from "src/app/_services/user.service";
 
 @Component({
@@ -32,14 +31,11 @@ export class UserSettingsComponent implements OnInit {
     // Get uid from URL
     const uid = this.route.snapshot.paramMap.get('uid');
     this.userService.saveUserSettings( {uid, email, displayName, displayPicture} as User);
-        // this.userService.notifyUserChange();
-
   }
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute,
-    private auth: AuthService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {

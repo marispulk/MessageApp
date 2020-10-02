@@ -1,10 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { Message } from '../message';
-import { MessageService } from "../message.service";
-import { Chat } from '../chat';
-import { ChatService } from '../chat.service';
-
+import { Message } from '../_models/message';
+import { MessageService } from "../_services/message.service";
+import { Chat } from '../_models/chat';
+import { ChatService } from '../_services/chat.service';
 
 @Component({
   selector: 'app-messages',
@@ -25,8 +24,6 @@ export class MessagesComponent implements OnInit {
         this.loading= false;
         this.messages = messages;
       });
-
-    // this.messages = this.chatMessageService.getChatMessages();
   }
 
   getChatProperties(): void {
@@ -65,5 +62,4 @@ export class MessagesComponent implements OnInit {
       }
     )
   }
-
 }
