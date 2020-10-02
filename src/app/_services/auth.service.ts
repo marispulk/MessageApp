@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { switchMap } from "rxjs/operators";
 
-import { User } from "../user";
+import { User } from "../_models/user";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,6 @@ export class AuthService {
   async credentialSignIn(email: string, password: string) {
     const credential = await this.afauth.signInWithEmailAndPassword(email, password);
     this.router.navigate(['']);
-    // return this.updateUserData(credential.user);
   }
 
   credentialSignUp(email: string, password: string) {

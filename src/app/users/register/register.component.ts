@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   isSignUpSuccesful = false;

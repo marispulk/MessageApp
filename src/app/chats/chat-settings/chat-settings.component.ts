@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Location } from "@angular/common";
-import { Chat } from "../../chat";
-import { ChatService } from "../../chat.service";
+import { Chat } from "../../_models/chat";
+import { ChatService } from "../../_services/chat.service";
 
 @Component({
   selector: 'app-chat-settings',
@@ -39,7 +39,6 @@ export class ChatSettingsComponent implements OnInit {
     this.chatService.saveChatSettings( {cid, chatName, chatPicture} as Chat );
 
     this.chatService.notifyChange();
-
   }
 
   deleteChat(): void {
@@ -67,8 +66,7 @@ export class ChatSettingsComponent implements OnInit {
     };
 
     this.chatService.addChatUser(cid, uid);
-
-}
+  }
 
   goBack(): void {
     this.location.back();

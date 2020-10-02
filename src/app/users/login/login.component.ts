@@ -39,5 +39,4 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorageService.getUser().roles;
     }
   }
-
 }
