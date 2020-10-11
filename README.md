@@ -1,7 +1,9 @@
 # MessageApp - Angular messaging application
 
+Check out live page here: https://messageapp100.azurewebsites.net/
+
 Angular messaging application, developed for showcase.
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
+This project was generated with Angular.
 
 # Description
 
@@ -9,16 +11,12 @@ ChatBuzz is a web application that is used for p2p messaging, it features the fo
 * Chat management feature - [DONE]
 * Messages feature - [DONE]
 * User management feature - [DONE]
-* Firebase database (Currently In-Memory Data Service) - [WIP]
-* User and chat relation - [WIP]
+* Firebase database (Currently In-Memory Data Service) - [DONE]
+* User and chat relation - [DONE]
 
 This application is developed by following Angular best practices.
 All features are broken into seperate components(or child components), all data fetching is done by injecting services, and all data models are seperated to model files. 
 All cross component communication is done via services or events.
-
-## Schema (To be updated)
-
-![Schema Picture](https://imgur.com/jzANiKX.png)
 
 ## Requirements
 * Angular 10
@@ -29,30 +27,19 @@ All cross component communication is done via services or events.
 
 ## Screenshots
 
-![Main screen](https://i.imgur.com/wKZZuFR.png)
-![Chat settings](https://i.imgur.com/BYTSsI6.png)
-![New chat](https://i.imgur.com/DkmwXIJ.png)
+Login page:
+![Login page](https://i.imgur.com/mkSZl6g.png)
 
-## Development server
+Welcome page:
+![Welcome page](https://i.imgur.com/0DCZUEO.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Chat settings page:
+![Chat settings page](https://i.imgur.com/NrBHtGH.png)
 
-## Code scaffolding
+User settings page:
+![User settings page](https://i.imgur.com/BJYVvS9.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Chat page:
+![Chat page](https://i.imgur.com/ueIe0KR.png)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
