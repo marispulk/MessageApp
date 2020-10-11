@@ -8,11 +8,11 @@ This project was generated with Angular.
 # Description
 
 ChatBuzz is a web application that is used for p2p messaging, it features the following functions:
-* Chat management feature - [DONE]
-* Messages feature - [DONE]
-* User management feature - [DONE]
-* Firebase database (Currently In-Memory Data Service) - [DONE]
-* User and chat relation - [DONE]
+* Chat management feature
+* Messages feature
+* User management feature 
+* Firebase database
+* User and chat relation.
 
 This application is developed by following Angular best practices.
 All features are broken into seperate components(or child components), all data fetching is done by injecting services, and all data models are seperated to model files. 
